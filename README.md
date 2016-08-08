@@ -14,10 +14,9 @@ Unofficial Slackbot for JobCan.
 
 ## Get Started
 
-<<<<<<< HEAD
 You can quick deploy to Heroku with using following button.
 
-https://heroku.com/deploy?template=https://github.com/heroku/node-js-sample/tree/master
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 After the quick deployment completed, please to finish the "[3. Make a Schedule for Auto Post](#deploy-3)" step.
 
