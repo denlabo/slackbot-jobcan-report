@@ -14,6 +14,16 @@ Unofficial Slackbot for JobCan.
 
 ## Get Started
 
+You can quick deploy to Heroku with using following button.
+
+https://heroku.com/deploy?template=https://github.com/heroku/node-js-sample/tree/master
+
+After the quick deployment completed, please to finish the "[3. Make a Schedule for Auto Post](#deploy-3)" step.
+
+----
+
+## Deployment
+
 ### 1. Deploy to Heroku
 
 ```
@@ -51,7 +61,7 @@ $ heroku run "npm run post -- postWorkTimeSummaryWeekly"
 
 HINT: You can also execute the other tasks. See [available tasks list](#tasks).
 
-### 3. Make a Schedule for Auto Post
+### <a id="deploy-3">3. Make a Schedule for Auto Post</a>
 
 Firstly, please install the "Heroku Schedule" to Your heroku app.
 ```

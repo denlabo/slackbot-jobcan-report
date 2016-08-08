@@ -1,0 +1,27 @@
+{
+	"name": "slackbot-jobcan-report",
+	"description": "Unofficial Slackbot for JobCan",
+	"website": "https://github.com/denlabo/slackbot-jobcan-report#readme",
+	"repository": "https://github.com/denlabo/slackbot-jobcan-report",
+	"env": {
+		"SLACK_WEBHOOK_URL": {
+			"description": "Incoming Webhook URL of Slack. You can get from https://slack.com/apps/A0F7XDUAZ-incoming-webhooks"
+		},
+		"SLACK_CHANEL": {
+			"description": "Channel name of Slack",
+			"value": "#general"
+		},
+		"JC_COMPANY_ID": {
+			"description": "Company ID of JobCan"
+		},
+		"JC_GROUP_MANAGER_ID": {
+			"description": "Group Manager ID of JobCan"
+		},
+		"JC_PASSWORD": {
+			"description": "Group Manager Password of JobCan"
+		}
+	},
+	"addons": [
+		"scheduler:standard"
+	]
+}
