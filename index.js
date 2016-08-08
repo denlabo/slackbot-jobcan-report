@@ -1,6 +1,6 @@
 /**
- * slackbot-jobcan-work-time
- * https://github.com/denlabo/slackbot-jobcan-work-time
+ * slackbot-jobcan-report
+ * https://github.com/denlabo/slackbot-jobcan-report
  * (C) 2016 - denLabo LLC. Released under MIT License.
  */
 
@@ -11,7 +11,7 @@ var app = express();
 
 // Routes
 app.get('/', function (req, res) {
-	res.send('Please see <a href="https://github.com/denlabo/slackbot-jobcan-work-time/README.md">document</a>.');
+	res.send('Please see <a href="https://github.com/denlabo/slackbot-jobcan-report/README.md">document</a>.');
 });
 
 // Start the server
