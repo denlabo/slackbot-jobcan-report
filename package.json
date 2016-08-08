@@ -1,0 +1,22 @@
+{
+  "name": "slackbot-jobcan-report",
+  "version": "0.1.0",
+  "description": "Unofficial Slackbot for JobCan",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "post": "node scripts/post.js"
+  },
+  "keywords": [
+    "slack",
+    "jobcan"
+  ],
+  "author": "denLabo LLC",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "jobcan-client": "^v0.2.1",
+    "node-slack": "0.0.7"
+  }
+}
