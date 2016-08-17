@@ -92,7 +92,8 @@ Done!
 
 ### Post of Work Time Summary
 
-* Daily: postWorkTimeSummaryDaily
+* Today: postWorkTimeSummaryToday
+* Daily (Yesterday): postWorkTimeSummaryDaily
 * Weekly: postWorkTimeSummaryWeekly
 * Monthly: postWorkTimeSummaryMonthly
 

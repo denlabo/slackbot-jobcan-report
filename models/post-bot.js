@@ -34,10 +34,14 @@ PostBot.prototype.postWorkTimeSummary = function (period_type, options) {
 		if (error) throw error;
 
 		var now = new Date(), start_date = null, end_date = null, period_text;
-		if (period_type == 'daily') { // Yesterday
+		if (period_type == 'today') { // Today
+			start_date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+			end_date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+			period_text = start_date.getFullYear() + '/' + (start_date.getMonth() + 1) + start_date.getDate();
+		} else if (period_type == 'daily') { // Yesterday
 			start_date = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1, 0, 0, 0);
 			end_date = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1, 0, 0, 0);
-			period_text = start_date.getFullYear() + '/' + (start_date.getMonth() + 1) + start_date.getDate();
+			period_text = start_date.getFullYear() + '/' + (start_date.getMonth() + 1) + (start_date.getDate() - 1);
 		} else if (period_type == 'weekly') { // This week
 			start_date = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay(), 0, 0, 0);
 			end_date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
