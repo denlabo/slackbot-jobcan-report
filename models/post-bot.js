@@ -17,11 +17,14 @@ var PostBot = function () {
 
 /**
  * Post the work time summary to Slack
- * @param {String} period_type  Period type - 'monthly', 'daily'
+ * @param {String} period_type  Period type - 'monthly', 'weekly', 'daily', 'today'
+ * @param {Object} options      Option parameters
  */
-PostBot.prototype.postWorkTimeSummary = function (period_type) {
+PostBot.prototype.postWorkTimeSummary = function (period_type, options) {
 
 	var self = this;
+
+	if (options == null) options = {};
 
 	var jobCan = new JobCan();
 

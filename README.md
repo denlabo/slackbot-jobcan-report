@@ -38,13 +38,13 @@ You can also get the *Webhook URL* from that page.
 
 Nextly, set the Environment Variables to Your heroku app using following commands.
 
-* SLACK_WEBHOOK_URL - Incoming Webhook URL of Slack
+* **SLACK_WEBHOOK_URL** - Incoming Webhook URL of Slack
     * e.g. ``https://hooks.slack.com/services/XXXXXXXXX/YYYYYYYYY/zzzzzzzzzzzzzzzzzzzzzzzz``
-* SLACK_CHANEL - Channel name of Slack
+* **SLACK_CHANEL** - Channel name of Slack
     * e.g. ``#general``
-* JC_COMPANY_ID - Company ID of JobCan
-* JC_GROUP_MANAGER_ID - Group Manager ID of JobCan
-* JC_PASSWORD - Group Manager Password of JobCan
+* **JC_COMPANY_ID** - Company ID of JobCan
+* **JC_GROUP_MANAGER_ID** - Group Manager ID of JobCan
+* **JC_PASSWORD** - Group Manager Password of JobCan
 
 ```
 $ heroku config:set SLACK_WEBHOOK_URL=YOUR-WEBHOOK-URL
@@ -54,12 +54,10 @@ $ heroku config:set JC_GROUP_MANAGER_ID=YOUR-JOBCAN-GROUP-MANAGER-ID
 $ heroku config:set JC_PASSWORD=YOUR-JOBCAN-PASSWORD
 ```
 
-After that, you can run test using the following command.
+After that, you can test run as follows.
 ```
 $ heroku run "npm run post -- postWorkTimeSummaryWeekly"
 ```
-
-HINT: You can also execute the other tasks. See [available tasks list](#tasks).
 
 ### <a id="deploy-3">3. Make a Schedule for Auto Post</a>
 
@@ -74,11 +72,15 @@ $ heroku addons:open scheduler
 ```
 
 Then, fill the form in the page as following.
-Please replace *YOUR-TASK-NAME* with chosen task name (e.g. ``postWorkTimeSummaryWeekly``) from task list.
-* Script: $ ``npm run post -- YOUR-TASK-NAME``
-* Dyno Size: Free
-* Frequency: As you want
-* Next Due: As you want
+Please replace *YOUR-TASK-NAME* with chosen task name (e.g. ``postWorkTimeSummaryWeekly``) from [available tasks](#tasks).
+You should also check the [available options](#options).
+
+* **Script** - Command to run
+	* Format: $ ``npm run post -- YOUR-TASK-NAME [YOUR-OPTIONS]``
+	* Example: $ ``npm run post -- postWorkTimeSummaryWeekly --weekday-only``
+* **Dyno Size** - Choose the ``Free``
+* **Frequency** - As you want
+* **Next Due** - As you want
 
 Done!
 
@@ -94,6 +96,18 @@ Done!
 * Weekly: postWorkTimeSummaryWeekly
 * Monthly: postWorkTimeSummaryMonthly
 
+
+----
+
+## <a id="options">Options</a>
+
+These options can be appended when the task running.
+
+### Weekday Only
+
+It will run the task only on weekdays.
+
+``--weekday-only``
 
 ----
 

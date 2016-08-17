@@ -17,6 +17,7 @@
   "dependencies": {
     "express": "^4.14.0",
     "jobcan-client": "^v0.2.1",
+    "minimist": "^1.2.0",
     "node-slack": "0.0.7"
   }
 }

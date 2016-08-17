@@ -1,27 +1,33 @@
 'use strict';
 
 // Initialize
+var argv = require('minimist')(process.argv.slice(2));
 var PostBot = require(__dirname + '/../models/post-bot');
 var postBot = new PostBot();
 
-console.log(postBot);
+if (argv._ == null || argv._.length == 0) throw 'mode was not specified';
 
 // Parse the arguments
-process.argv.forEach(function (arg, index) {
+var mode = argv._[0], options = {};
+for (var key in argv) {
+	if (key != '_') options[key] = argv[key];
+}
 
-	if (index <= 1) return;
-
-	if (arg == 'postWorkTimeSummaryMonthly') {
-	   console.log('Executing postWorkTimeSummaryMonthly');
-	   postBot.postWorkTimeSummary('monthly');
-	} if (arg == 'postWorkTimeSummaryWeekly') {
-		console.log('Executing postWorkTimeSummaryWeekly');
-		postBot.postWorkTimeSummary('weekly');
-	} else if (arg == 'postWorkTimeSummaryDaily') {
-		console.log('Executing postWorkTimeSummaryDaily');
-		postBot.postWorkTimeSummary('daily');
+// Check the options
+if (options['weekday-only']) {
+	var day = new Date().getDay();
+	if (day == 0 || day == 6) { // Sunday or Saturday
+		console.log('Canceled. Today is not weekday.');
+		return process.exit(0);
 	}
+}
 
-});
+// Check the mode
+if (mode.match(/^postWorkTimeSummary(.+)$/)) {
+	console.log('Executing ' + mode + '...');
+	postBot.postWorkTimeSummary(RegExp.$1.toLowerCase(), options);
+} else {
+	throw 'Unknown mode';
+}
 
 console.log('Done');
