@@ -14,6 +14,14 @@ for (var key in argv) {
 }
 
 // Check the options
+if (options['enable-days']) {
+	var days_of_week = options['enable-days'].toString().split(',');
+	var day = new Date().getDay().toString();
+	if (days_of_week.indexOf(day) == -1) {
+		console.log('Canceled. Today is not specified day.');
+		return process.exit(0);
+	}
+}
 if (options['weekday-only']) {
 	var day = new Date().getDay();
 	if (day == 0 || day == 6) { // Sunday or Saturday

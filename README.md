@@ -104,7 +104,15 @@ Done!
 
 These options can be appended when the task running.
 
-### Weekday Only
+### Limitation of Day of the Week
+
+It will run the task only on the specific days.
+
+Example - Run on Sunday and Saturday:
+
+``--enable-days=0,6``
+
+### Weekday Only (Deprecated)
 
 It will run the task only on weekdays.
 
